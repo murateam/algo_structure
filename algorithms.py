@@ -339,3 +339,50 @@ def shell_sort(A):
 			gap_insertion_sort(A, start_position, sub_list_count)
 
 		sub_list_count = sub_list_count // 2
+
+
+class BinHeap:
+	def __init__(self):
+		self.heaplist = []
+		self.heapsize = 0
+
+	def left(self, i):
+		return i * 2 + 1
+
+	def right(self, i):
+		return i * 2 + 2
+
+	def heapify(self, i):
+		l = self.left(i)
+		r = self.right(i)
+		if l <= self.heapsize and self.heaplist[l] > self.heaplist[i]:
+			largest = l
+		else:
+			largest = i
+		if r <= self.heapsize and self.heaplist[r] > self.heaplist[largest]:
+			largest = r
+		if largest != i:
+			tmp = self.heaplist[i]
+			self.heaplist[i] = self.heaplist[largest]
+			self.heaplist[largest] = tmp
+			self.heapify(largest)
+
+	def buildHeap(self, list):
+		self.heaplist = list
+		self.heapsize = len(list) - 1
+		for i in range(len(list) // 2, -1, -1):
+			# print(i)
+			self.heapify(i)
+
+	def heapSort(self):
+		pass
+
+	def extractMax(self):
+		pass
+
+	def getHeap(self):
+		return self.heaplist
+
+heap = BinHeap()
+heap.buildHeap([0, 0, 9, 5, 23, 0, 0, 2, 2, 1, 4, 0, 12, -1, 0])
+print(heap.getHeap())
