@@ -387,4 +387,4 @@ heap = BinHeap()
 heap.buildHeap([0, 0, 9, 5, 23, 0, 0, 2, 2, 1, 4, 0, 12, -1, 0])
 print(heap.getHeap())
 
-"Строка master"
+"Строка master after"
